@@ -35,6 +35,8 @@
   },
   "scripts": {
     "pretest": "node node_modules/protractor/bin/webdriver-manager update",
-    "test": "grunt ci"
+    "test": "grunt ci",
+    "check": "grunt check",
+    "build": "grunt build"
   }
 }

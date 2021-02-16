@@ -250,53 +250,53 @@ angular.module("multiselect.html", []).run(["$templateCache", function ($templat
     "    <button type=\"button\" class=\"btn dropdown-toggle\" ng-class=\"classesBtn\" ng-click=\"toggleDropdown()\" ng-disabled=\"disabled\" style=\"white-space: nowrap; overflow-x: hidden; text-overflow: ellipsis;\">\n" +
     "        {{getButtonText()}}&nbsp;<span class=\"caret\"></span>\n" +
     "    </button>\n" +
-    "    <ul class=\"dropdown-menu dropdown-menu-form\"\n" +
+    "    <div class=\"dropdown-menu dropdown-menu-form\"\n" +
     "        ng-style=\"{display: open ? 'block' : 'none'}\" style=\"width: 100%; overflow-x: auto\">\n" +
     "\n" +
-    "        <li ng-show=\"showSelectAll\">\n" +
+    "        <div ng-show=\"showSelectAll\">\n" +
     "            <a ng-click=\"selectAll()\" href=\"\">\n" +
-    "                <span class=\"glyphicon glyphicon-ok\"></span> {{labels.selectAll || 'Select All'}}\n" +
+    "                <span class=\"fa fa-check\"></span> {{labels.selectAll || 'Select All'}}\n" +
     "            </a>\n" +
-    "        </li>\n" +
-    "        <li ng-show=\"showUnselectAll\">\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"showUnselectAll\">\n" +
     "            <a ng-click=\"unselectAll()\" href=\"\">\n" +
-    "                <span class=\"glyphicon glyphicon-remove\"></span> {{labels.unselectAll || 'Unselect All'}}\n" +
+    "                <span class=\"fa fa-remove\"></span> {{labels.unselectAll || 'Unselect All'}}\n" +
     "            </a>\n" +
-    "        </li>\n" +
-    "        <li ng-show=\"(showSelectAll || showUnselectAll)\"\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"(showSelectAll || showUnselectAll)\"\n" +
     "            class=\"divider\">\n" +
-    "        </li>\n" +
+    "        </div>\n" +
     "\n" +
-    "        <li role=\"presentation\" ng-repeat=\"option in selectedOptions\" class=\"active\">\n" +
-    "            <a class=\"item-selected\" href=\"\" title=\"{{showTooltip ? getDisplay(option) : ''}}\" ng-click=\"toggleItem(option); $event.stopPropagation()\" style=\"overflow-x: hidden;text-overflow: ellipsis\">\n" +
-    "                <span class=\"glyphicon glyphicon-remove\"></span>\n" +
+    "        <div role=\"presentation\" ng-repeat=\"option in selectedOptions\" class=\"active\">\n" +
+    "            <a class=\"item-selected dropdown-item\" href=\"\" title=\"{{showTooltip ? getDisplay(option) : ''}}\" ng-click=\"toggleItem(option); $event.stopPropagation()\" style=\"overflow-x: hidden;text-overflow: ellipsis\">\n" +
+    "                <span class=\"fa fa-remove\"></span>\n" +
     "                {{getDisplay(option)}}\n" +
     "            </a>\n" +
-    "        </li>\n" +
-    "        <li ng-show=\"selectedOptions.length > 0\" class=\"divider\"></li>\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"selectedOptions.length > 0\" class=\"divider\"></div>\n" +
     "\n" +
-    "        <li ng-show=\"showSearch\">\n" +
+    "        <div ng-show=\"showSearch\">\n" +
     "            <div class=\"dropdown-header\">\n" +
     "                <input type=\"text\" class=\"form-control input-sm\" style=\"width: 100%;\"\n" +
     "                       ng-model=\"searchFilter\" placeholder=\"{{labels.search || 'Search...'}}\" ng-change=\"updateOptions()\"/>\n" +
     "            </div>\n" +
-    "        </li>\n" +
+    "        </div>\n" +
     "\n" +
-    "        <li ng-show=\"showSearch\" class=\"divider\"></li>\n" +
-    "        <li role=\"presentation\" ng-repeat=\"option in unselectedOptions | filter:search() | limitTo: searchLimit\"\n" +
+    "        <div ng-show=\"showSearch\" class=\"divider\"></div>\n" +
+    "        <div role=\"presentation\" ng-repeat=\"option in unselectedOptions | filter:search() | limitTo: searchLimit\"\n" +
     "            ng-if=\"!isSelected(option)\"\n" +
     "            ng-class=\"{disabled : selectionLimit && selectedOptions.length >= selectionLimit}\">\n" +
-    "            <a class=\"item-unselected\" href=\"\" title=\"{{showTooltip ? getDisplay(option) : ''}}\" ng-click=\"toggleItem(option); $event.stopPropagation()\" style=\"overflow-x: hidden;text-overflow: ellipsis\">\n" +
+    "            <a class=\"item-unselected dropdown-item\" href=\"\" title=\"{{showTooltip ? getDisplay(option) : ''}}\" ng-click=\"toggleItem(option); $event.stopPropagation()\" style=\"overflow-x: hidden;text-overflow: ellipsis\">\n" +
     "                {{getDisplay(option)}}\n" +
     "            </a>\n" +
-    "        </li>\n" +
+    "        </div>\n" +
     "\n" +
-    "        <li class=\"divider\" ng-show=\"selectionLimit > 1\"></li>\n" +
-    "        <li role=\"presentation\" ng-show=\"selectionLimit > 1\">\n" +
+    "        <div class=\"divider\" ng-show=\"selectionLimit > 1\"></div>\n" +
+    "        <div role=\"presentation\" ng-show=\"selectionLimit > 1\">\n" +
     "            <a>{{selectedOptions.length || 0}} / {{selectionLimit}} {{labels.itemsSelected || 'selected'}}</a>\n" +
-    "        </li>\n" +
+    "        </div>\n" +
     "\n" +
-    "    </ul>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "");
 }]);
